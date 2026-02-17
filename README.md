@@ -1,5 +1,7 @@
 # OpenJournal
 
+![Preview image](./preview.png)
+
 A beautiful, minimal micro-journaling web application for daily reflection, dream logging, mood tracking, and personal wisdom collection. Built with React, Express, and PostgreSQL.
 
 ![OpenJournal](https://img.shields.io/badge/OpenJournal-Micro%20Journaling-c4841d)
@@ -25,13 +27,13 @@ A beautiful, minimal micro-journaling web application for daily reflection, drea
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
+| Layer    | Technology                                        |
+| -------- | ------------------------------------------------- |
 | Frontend | React 18, Vite, Tailwind CSS, shadcn/ui, Recharts |
-| Backend | Express.js 5, TypeScript |
-| Database | PostgreSQL, Drizzle ORM |
-| Routing | wouter (client), Express (server) |
-| State | TanStack Query v5 |
+| Backend  | Express.js 5, TypeScript                          |
+| Database | PostgreSQL, Drizzle ORM                           |
+| Routing  | wouter (client), Express (server)                 |
+| State    | TanStack Query v5                                 |
 
 ---
 
@@ -82,11 +84,11 @@ A beautiful, minimal micro-journaling web application for daily reflection, drea
 
 ### Environment Variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `DATABASE_URL` | Yes | PostgreSQL connection string |
-| `SESSION_SECRET` | No | Secret for session cookies (auto-generated if not set) |
-| `PORT` | No | Server port (default: `5000`) |
+| Variable         | Required | Description                                            |
+| ---------------- | -------- | ------------------------------------------------------ |
+| `DATABASE_URL`   | Yes      | PostgreSQL connection string                           |
+| `SESSION_SECRET` | No       | Secret for session cookies (auto-generated if not set) |
+| `PORT`           | No       | Server port (default: `5000`)                          |
 
 ---
 
@@ -154,7 +156,7 @@ The production build bundles the React frontend into static files and the Expres
 Create a `docker-compose.yml`:
 
 ```yaml
-version: "3.8"
+version: '3.8'
 
 services:
   db:
@@ -167,17 +169,17 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - '5432:5432'
 
   app:
     build: .
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - '5000:5000'
     environment:
       DATABASE_URL: postgresql://openjournal:openjournal@db:5432/openjournal
       SESSION_SECRET: change-me-to-a-random-string
-      PORT: "5000"
+      PORT: '5000'
     depends_on:
       - db
 
